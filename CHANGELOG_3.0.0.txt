@@ -1,0 +1,152 @@
+✊ Down with USA ✊ Down with Israel ✊
+# LATEST [3.0.0]
+=======================
+## [3.0.0] - 2025-11-17
+### Rebranded & Redesigned
+- Renamed to GoogleTileForge Pro: Enhanced branding for better market appeal and professional identity
+- Download Manager Interface: Complete UI overhaul inspired by Internet Download Manager (IDM) for intuitive user experience
+- Modern Control Panel: Added execution mode selector (Sequential/Parallel) with visual indicators for running tasks and queue status
+### Download Management System
+- Multi-Task Support: Download multiple KMZ/KML files simultaneously with intelligent queue management
+- Parallel Downloads: Support for up to 4 concurrent tile download tasks with configurable worker threads (1-4 per task)
+- Sequential Mode: Process multiple tasks one-by-one for resource-constrained systems
+- Queue Priority Control: Reorder tasks with Move Up/Down/Top/Bottom functions for flexible workflow management
+### Task Control & Monitoring
+- Advanced Task States: Added Idle, Downloading, Paused, Stopped, Completed, Partially Completed, and Error states
+- Pause & Resume: Pause downloads and resume from exact point with timestamp-based session recovery
+### Persistent Session Management
+- Auto-save System: Automatic task history saving every 60 seconds plus save-on-exit for crash protection
+- Session Recovery: Automatically restore all tasks with their progress on application restart
+- Smart State Conversion: Running downloads automatically converted to "Paused" state on restart
+### Enhanced Download Engine
+- Abort Mechanism: Threading.Event-based abort system for clean task termination
+- Verification System: Post-download tile validation with black-pixel detection and file integrity checks
+- Failed Tile Retry: Automatic retry pass for failed tiles with adjustable retry counts
+### Custom Tile URL Support
+- Tile Manager Integration: Add custom tile servers through built-in tile URL manager
+### File Management
+- Multi-file Selection: Add multiple KMZ/KML files at once for batch processing
+- Smart Folder Validation: Automatic output folder creation and validation on resume
+- Folder Check on Resume: Prompts user to select new folder if original doesn't exist
+- Pickle-based Storage: Robust task persistence with version handling for backwards compatibility
+### Developer Improvements
+- Thread-safe Operations: Proper threading.Event usage for clean shutdown and pause
+- **Callback System: Flexible callback mechanism for sequential task chaining
+### Improved
+- Memory Efficiency: Optimized tile downloading with streaming and cleanup
+- Network Reliability: Enhanced retry logic with exponential backoff
+- Progress Accuracy: Real-time tile counting with downloaded/total display
+- Performance: Multi-threaded downloads with configurable worker pools
+### Fixed
+- Memory Leaks: Proper cleanup of threading objects and file handles
+- UI Freezing: All long-running operations moved to background threads
+- Session Recovery: Fixed iid conflicts and state restoration issues
+=======================
+## [2.3.0] - 2025-10-10
+### Added
+- Introduced configurable parallel download system supporting up to 4 simultaneous threads.
+- Enhances download performance by enabling concurrent tile fetching and improved throughput.
+=======================
+## [2.2.1] - 2025-09-16
+### Fixed
+- Gist fetching: Resolved 401 authentication errors for public gists due to API changes
+=======================
+## [2.2.0] - 2025-08-20
+### Added
+- Input validation: Added comprehensive validation for KMZ/KML file and output directory selection with user-friendly error messages
+- Format switching: New ability to toggle between JPEG and GTiff output driver formats
+- Enhanced UI: Read-only entry fields with browse functionality for better user experience
+### Improved
+- Error handling: More robust error prevention when required fields are not selected
+- User guidance: Clear feedback when mandatory inputs are missing
+### Fixed
+- Entry state management: Resolved issues with read-only entry fields not displaying selected file paths
+=======================
+## [2.1.1] - 2025-08-05
+### Added
+- Job Log: Collecting user entries and tile names for better tracking and debugging.
+### Fixed
+- Minor bugs: Addressed minor bugs to improve overall stability and performance.
+=======================
+## [2.1.0] - 2025-06-30
+### Added
+- JGW World File: The program now generates a .jgw world file alongside the JPG mosaic for precise georeferencing.
+- RAM Check: Before merging, the program checks available RAM to better manage memory usage during the merging process.
+### Improved
+- PNG Merging Workflow: All PNG tiles are first merged and then projected to UTM to eliminate black lines along tile borders.
+- TIFF Compression: TIFF outputs now use the JPEG driver for improved compression and reduced file size.
+=======================
+## [2.0.1] - 2025-05-13
+### Fixed
+- Minor Bug Fix: Resolved an issue with handling KML files in the Intersecting Tiles Method.
+=======================
+## [2.0.0] - 2025-03-10
+### Added
+- Modularization: Refactored key functionalities into separate classes for better maintainability:
+-- TileMergerApp for mosaic creation.
+-- ProjectToUTMApp for UTM projection.
+- Tools Menu: Added active options for "Merge TIF tiles" and "Transform WGS to UTM" to utilize the new modular classes.
+- Improved Error Handling: Enhanced error messages and logging mechanisms for better debugging and user insight.
+### Fixed
+- Code Organization: Improved modularity and maintainability of the codebase.
+=======================
+## [1.5.0] - 2025-02-14
+### Added
+- Output Control: Implemented "Verify Downloaded Tiles" checkbox to ensure the quality of downloaded image tiles via 2 steps check.
+-- Step 1: Check if the file size is not below a given threshold.
+-- Step 2: If the file size is below the threshold, check if the image is not mostly black using the function.
+-- If the tile is invalid (mostly black and small), it deletes the file, increments the retry count, and if the retry count is less than the allowed number of retries, it logs a message and retries downloading the tile after a delay.
+=======================
+## [1.4.0] - 2025-02-02
+### Added
+- Supporting KML: Accepting KML format alongside KMZ files.
+- New Tile Type(s) support in future: Fetching and updating URLs from GitHub.
+- JPEG Compression for Output TIFF: Implemented JPEG compression to reduce the size of the output TIFF files.
+### Fixed
+- Minor bugs: Addressed minor bugs to improve overall stability and performance.
+- Libraries Exclusion: Excluded some libraries to decrease startup time.
+- DXF Border Log: Set the logging process for DXF border making to errors only.
+=======================
+## [1.3.1] - 2025-01-20
+### Added
+- Job Log: Collecting user entries and tile names for better tracking and debugging.
+- Improved Download Flexibility: Added more flexibility for downloading Google tiles, avoiding connection blocking.
+- Output Controls: Added more controls for the outputs via checkboxes for enhanced user customization.
+- Detailed Log Messages: Providing more information in the log message window for better user insight.
+### Fixed
+- Minor bugs: Addressed minor bugs to improve overall stability and performance.
+=======================
+## [1.3.0] - 2025-01-10
+### Added
+- Mosaic in JPG format: Alongside the BigTIFF format, the program now generates a mosaic in JPG format for lightweight and easy-to-share outputs.
+- DXF border in UTM coordinate system: The program now creates a DXF file containing the mosaic border in UTM coordinates, allowing users to overlay the JPG mosaic within CAD software for precise geospatial visualization.
+=======================
+## [1.2.4] - 2025-01-05
+### Added
+- Check for updates method.
+- Splash screen for showing which libraries is loading.
+### Fixed
+- Intersecting Tiles Method fixed.
+=======================
+## [1.2.3] - 2025-01-02
+### Added
+- Support for BigTIFF output format to handle large raster images.
+- Renamed UTM output files to include the zoom level for better organization.
+### Fixed
+- Removed unnecessary doc.kml file from output directory.
+=======================
+## [1.1.2] - 2025-01-01
+### Added
+- Timestamped Output Folders: Automatically creates a subfolder in the output directory with a date_time format (e.g., 20250101_143045) to avoid overwriting previous results.
+- User Notification: Displays a messagebox to notify the user when processing is complete, improving user experience.
+### Fixed
+- Overwrite Prevention: Ensures that each processing run saves results in a unique folder, preventing accidental overwrites.
+=======================
+## [1.1.0] - 2024-12-31
+### Added
+- Multithreading support to improve performance and prevent the GUI from freezing during tile downloading and processing.
+- Renamed the program to **GeoTileForge** for better branding and clarity.
+=======================
+## [1.0.0] - 2024-12-10
+### Added
+- Initial release with basic functionality for processing KMZ files, downloading tiles, and creating mosaics.
